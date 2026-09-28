@@ -1,0 +1,14 @@
+Botón Azul: OK, Ya comprueba filas, columnas y cuadros.
+Botón Verde: OK. Se guarda en el csv las casillas no editables y tambien la solución. Aquí se puede trabajar en la dirección "Pasatiempos" en libro.
+Botón "Nuevo Sudoku": OK. Se crea un nuevo Sudoku
+Botón "Limpiar Tablero": OK. Limpia las celdas editables.
+Botón Crear a Papel: OK. Aparece el pdf, falta el centrarlos
+
+
+
+
+ahora se debe pasar de las partidas.csv a sudokus
+
+
+en la bash para crear el composer
+    composer require dompdf/dompdf

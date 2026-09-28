@@ -1,0 +1,4 @@
+El archivo sudokus es el indicado para crear en pdf los pasatiempos. Contiene entre otras columnas la solución (aunque podría tener más),
+que será también imprimida al final del libro.
+
+Todos los Sudokus tienen que ser resueltos por mí para validarlos y no haya uno solo que no se pueda resolver.
