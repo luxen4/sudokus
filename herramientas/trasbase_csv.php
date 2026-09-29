@@ -17,9 +17,9 @@
 // ============================================================
 
 
-$archivoPartidas = __DIR__ . '/partidas.csv';
+$archivoPartidas = __DIR__ . '/../data/partidas.csv'; 
 
-$archivoSudokus = __DIR__ . '/sudokus.csv';
+$archivoSudokus = __DIR__ . '/../data/sudokus.csv';
 
 
 // ============================================================

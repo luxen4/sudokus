@@ -1,6 +1,6 @@
 <?php // ============================================================ 
 // CONFIGURACIÓN // ============================================================ 
-$archivoCSV = __DIR__ . '/sudokus.csv'; 
+$archivoCSV = __DIR__ . '/data/sudokus.csv'; 
 // ============================================================ 
 // FUNCIONES // ============================================================ /** * Convierte la cadena del CSV en una matriz 9x9. * * En el CSV: * * * = casilla vacía * 1-9 = número fijo */ 
 function convertirTablero(string $cadena): array { $tablero = []; for ($fila = 0; $fila < 9; $fila++) { $tablero[$fila] = []; for ($columna = 0; $columna < 9; $columna++) { $posicion = ($fila * 9) + $columna; $caracter = $cadena[$posicion]; if ($caracter === '*') { $tablero[$fila][$columna] = 0; } else { $tablero[$fila][$columna] = (int) $caracter; } } } return $tablero; } /** * Indica qué casillas son originales/fijas. */ 

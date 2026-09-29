@@ -6,7 +6,7 @@
 // Distribución: 3 columnas x 4 filas
 // ============================================================
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -16,7 +16,7 @@ use Dompdf\Options;
 // CONFIGURACIÓN
 // ============================================================
 
-$archivoCSV = __DIR__ . '/sudokus.csv';
+$archivoCSV = __DIR__ . '/../data/sudokus.csv';
 
 
 // ============================================================

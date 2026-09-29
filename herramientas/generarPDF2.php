@@ -4,7 +4,7 @@
 // GENERAR PDF CON 3 SUDOKUS
 // ============================================================
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -286,7 +286,7 @@ function dibujarSudoku(array $tablero, int $numero, string $dificultad): string
 // CARGAR SUDOKUS
 // ============================================================
 
-$archivoCSV = __DIR__ . '/sudokus.csv';
+$archivoCSV = $_SERVER['DOCUMENT_ROOT'] . '/sudokus/data/sudokus.csv';
 
 $sudokus = cargarSudokus($archivoCSV);
 
@@ -299,19 +299,10 @@ if (count($sudokus) < 3) {
 }
 
 
-// ============================================================
-// ELEGIR 3 SUDOKUS DIFERENTES
-// ============================================================
-
-$indices = array_rand(
-    $sudokus,
-    3
-);
 
 
-// array_rand devuelve un array cuando se piden 3
 
-shuffle($indices);
+
 
 
 // ============================================================
@@ -506,20 +497,38 @@ body {
 
 HTML;
 
-
 // ============================================================
-// AÑADIR LOS 3 SUDOKUS
+// AÑADIR TODOS LOS SUDOKUS
+// 2 SUDOKUS POR PÁGINA
 // ============================================================
 
 $numero = 1;
 
-foreach ($indices as $indice) {
+$totalSudokus = count($sudokus);
+
+foreach ($sudokus as $indice => $sudoku) {
+
+    // --------------------------------------------------------
+    // Cada 2 sudokus comenzamos una nueva página
+    // excepto antes del primero
+    // --------------------------------------------------------
+
+    if ($numero > 1 && ($numero - 1) % 2 === 0) {
+
+        $html .= '<div class="salto-pagina"></div>';
+    }
+
+
+    // --------------------------------------------------------
+    // Dibujar Sudoku
+    // --------------------------------------------------------
 
     $html .= dibujarSudoku(
-        $sudokus[$indice]['tablero'],
+        $sudoku['tablero'],
         $numero,
-        $sudokus[$indice]['dificultad']
+        $sudoku['dificultad']
     );
+
 
     $numero++;
 }
